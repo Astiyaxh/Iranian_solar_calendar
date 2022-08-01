@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Administrator"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="1401-05-01 08:46:50 &#1602;.&#1592;"/>
+        <attribute name="created" value="QWRtaW5pc3RyYXRvcjtJUkFOOzE0MDEtMDQtMjg7MTA6Mzg6NTkg2YIu2Lg7NjA0OA=="/>
+        <attribute name="edited" value="QWRtaW5pc3RyYXRvcjtJUkFOOzE0MDEtMDQtMjg7MDU6MzQ6NDcg2Kgu2Lg7Mjk7NjE4NQ=="/>
+        <attribute name="edited" value="aXJhbjtERVNLVE9QLVRJVUlRNzc7MTQwMS0wNS0wMTswODo0Njo1MCDZgi7YuDsyOzU5ODY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="year, month, day, leap, flag, diff, counter, pishravi, temp, pdays" type="Integer" array="False" size=""/>
+            <assign variable="leap" expression="0"/>
+            <assign variable="flag" expression="0"/>
+            <assign variable="counter" expression="0"/>
+            <assign variable="temp" expression="6"/>
+            <assign variable="pdays" expression="0"/>
+            <output expression="&quot;Enter year: &quot;" newline="True"/>
+            <input variable="year"/>
+            <output expression="&quot;Enter month: &quot;" newline="True"/>
+            <input variable="month"/>
+            <output expression="&quot;Enter Day: &quot;" newline="True"/>
+            <input variable="day"/>
+            <while expression="flag = 0">
+                <if expression="year &lt; 1399 or year &gt; 1498">
+                    <then>
+                        <output expression="&quot;Try again Enter another year: &quot;" newline="True"/>
+                        <input variable="year"/>
+                    </then>
+                    <else>
+                        <assign variable="flag" expression="1"/>
+                    </else>
+                </if>
+            </while>
+            <if expression="year == 1408 or year == 1441 or year == 1474">
+                <then>
+                    <assign variable="leap" expression="1"/>
+                </then>
+                <else>
+                    <if expression="year &lt; 1408">
+                        <then>
+                            <if expression="(year - 1399) % 4 == 0">
+                                <then>
+                                    <if expression="year != 1407">
+                                        <then>
+                                            <assign variable="leap" expression="1"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else/>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="1408 &lt; year and year &lt; 1441">
+                                <then>
+                                    <if expression="(year - 1408) % 4 == 0">
+                                        <then>
+                                            <if expression="year != 1440">
+                                                <then>
+                                                    <assign variable="leap" expression="1"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="1441 &lt; year and year &lt; 1474">
+                                        <then>
+                                            <if expression="( year - 1441) % 4 == 0">
+                                                <then>
+                                                    <if expression="year != 1473">
+                                                        <then>
+                                                            <assign variable="leap" expression="1"/>
+                                                        </then>
+                                                        <else/>
+                                                    </if>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="year &gt; 1474">
+                                                <then>
+                                                    <if expression="(year - 1474) % 4 == 0">
+                                                        <then>
+                                                            <assign variable="leap" expression="1"/>
+                                                        </then>
+                                                        <else/>
+                                                    </if>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <assign variable="diff" expression="year - 1399"/>
+            <if expression="leap == 1">
+                <then>
+                    <assign variable="diff" expression="diff - 1"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="year == 1399">
+                <then/>
+                <else>
+                    <while expression="year &gt; 1399 and year &lt;= 1498">
+                        <if expression="year &gt;= 1474">
+                            <then>
+                                <while expression="year &gt;= 1474">
+                                    <if expression="(year - 1474) % 4 == 0">
+                                        <then>
+                                            <assign variable="counter" expression="counter + 1"/>
+                                            <assign variable="year" expression="year - 1"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="year" expression="year - 1"/>
+                                        </else>
+                                    </if>
+                                </while>
+                            </then>
+                            <else>
+                                <if expression="year &lt; 1474 and year &gt;= 1441">
+                                    <then>
+                                        <while expression="year &lt; 1474 and year &gt;= 1441">
+                                            <if expression="year != 1473">
+                                                <then>
+                                                    <if expression="(year - 1441) % 4 == 0">
+                                                        <then>
+                                                            <assign variable="counter" expression="counter + 1"/>
+                                                            <assign variable="year" expression="year - 1"/>
+                                                        </then>
+                                                        <else>
+                                                            <assign variable="year" expression="year - 1"/>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <assign variable="year" expression="year - 1"/>
+                                                </else>
+                                            </if>
+                                        </while>
+                                    </then>
+                                    <else>
+                                        <if expression="year &lt; 1441 and year &gt;= 1408">
+                                            <then>
+                                                <while expression="year &lt; 1441 and year &gt;= 1408">
+                                                    <if expression="year != 1440">
+                                                        <then>
+                                                            <if expression="(year - 1408) % 4 == 0">
+                                                                <then>
+                                                                    <assign variable="counter" expression="counter + 1"/>
+                                                                    <assign variable="year" expression="year - 1"/>
+                                                                </then>
+                                                                <else>
+                                                                    <assign variable="year" expression="year - 1"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <assign variable="year" expression="year - 1"/>
+                                                        </else>
+                                                    </if>
+                                                </while>
+                                            </then>
+                                            <else>
+                                                <if expression="year &lt; 1408 and year &gt;= 1399">
+                                                    <then>
+                                                        <while expression="year &lt; 1408 and year &gt;= 1399">
+                                                            <if expression="year != 1407">
+                                                                <then>
+                                                                    <if expression="(year - 1399) % 4 == 0">
+                                                                        <then>
+                                                                            <assign variable="counter" expression="counter + 1"/>
+                                                                            <assign variable="year" expression="year - 1"/>
+                                                                        </then>
+                                                                        <else>
+                                                                            <assign variable="year" expression="year - 1"/>
+                                                                        </else>
+                                                                    </if>
+                                                                </then>
+                                                                <else>
+                                                                    <assign variable="year" expression="year - 1"/>
+                                                                </else>
+                                                            </if>
+                                                        </while>
+                                                    </then>
+                                                    <else/>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </while>
+                </else>
+            </if>
+            <output expression="&quot;Leap: &quot; &amp; leap" newline="True"/>
+            <output expression="&quot;Diffrent: &quot; &amp; diff" newline="True"/>
+            <output expression="&quot;counter: &quot; &amp; counter" newline="True"/>
+            <assign variable="diff" expression="diff - counter"/>
+            <assign variable="counter" expression="counter * 2"/>
+            <assign variable="pishravi" expression="diff + counter"/>
+            <output expression="pishravi" newline="True"/>
+            <assign variable="pishravi" expression="pishravi % 7"/>
+            <output expression="pishravi" newline="True"/>
+            <while expression="pishravi &gt;= 0">
+                <if expression="temp &gt;= 0 and temp &lt; 7">
+                    <then>
+                        <assign variable="temp" expression="temp + 1"/>
+                        <assign variable="pishravi" expression="pishravi - 1"/>
+                    </then>
+                    <else>
+                        <assign variable="temp" expression="temp - 7"/>
+                    </else>
+                </if>
+            </while>
+            <assign variable="temp" expression="temp - 1"/>
+            <output expression="&quot;pishravi: &quot; &amp; temp" newline="True"/>
+            <if expression="month == 1">
+                <then/>
+                <else>
+                    <if expression="month &gt;= 2 and month &lt;= 7">
+                        <then>
+                            <assign variable="month" expression="month - 1"/>
+                            <assign variable="pdays" expression="month * 31"/>
+                        </then>
+                        <else>
+                            <if expression="month == 8">
+                                <then>
+                                    <assign variable="month" expression="month - 2"/>
+                                    <assign variable="pdays" expression="month * 31"/>
+                                    <assign variable="pdays" expression="pdays + 30"/>
+                                </then>
+                                <else>
+                                    <if expression="month == 9">
+                                        <then>
+                                            <assign variable="month" expression="month - 3"/>
+                                            <assign variable="pdays" expression="month * 31"/>
+                                            <assign variable="pdays" expression="pdays + 60"/>
+                                        </then>
+                                        <else>
+                                            <if expression="month == 10">
+                                                <then>
+                                                    <assign variable="month" expression="month - 4"/>
+                                                    <assign variable="pdays" expression="month * 31"/>
+                                                    <assign variable="pdays" expression="pdays + 90"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="month == 11">
+                                                        <then>
+                                                            <assign variable="month" expression="month - 5"/>
+                                                            <assign variable="pdays" expression="month * 31"/>
+                                                            <assign variable="pdays" expression="pdays + 120"/>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="month == 12">
+                                                                <then>
+                                                                    <assign variable="month" expression="month - 6"/>
+                                                                    <assign variable="pdays" expression="month * 31"/>
+                                                                    <assign variable="pdays" expression="pdays + 150"/>
+                                                                </then>
+                                                                <else/>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;Past Days: &quot; &amp; pdays" newline="True"/>
+            <assign variable="day" expression="day + pdays"/>
+            <assign variable="day" expression="day % 7"/>
+            <while expression="day &gt;= 0">
+                <if expression="temp &gt;= 0 and temp &lt; 7">
+                    <then>
+                        <assign variable="temp" expression="temp + 1"/>
+                        <assign variable="day" expression="day - 1"/>
+                    </then>
+                    <else>
+                        <assign variable="temp" expression="temp - 7"/>
+                    </else>
+                </if>
+            </while>
+            <assign variable="temp" expression="temp - 2"/>
+            <if expression="year == 1399">
+                <then>
+                    <assign variable="temp" expression="temp - 1"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="temp == 0">
+                <then>
+                    <output expression="&quot;shanbeh&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="temp == 1">
+                        <then>
+                            <output expression="&quot;1shanbeh&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="temp == 2">
+                                <then>
+                                    <output expression="&quot;2shanbeh&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="temp == 3">
+                                        <then>
+                                            <output expression="&quot;3shanbeh&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="temp == 4">
+                                                <then>
+                                                    <output expression="&quot;4shanbeh&quot;" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="temp == 5">
+                                                        <then>
+                                                            <output expression="&quot;5shanbeh&quot;" newline="True"/>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="temp == -1">
+                                                                <then>
+                                                                    <output expression="&quot;adineh&quot;" newline="True"/>
+                                                                </then>
+                                                                <else/>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
