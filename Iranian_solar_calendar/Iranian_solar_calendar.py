@@ -51,19 +51,19 @@ print("Enter day[1-31|30|29]:",end='',flush=True)
 day = int(input())
 while flag == 0:
     if month > 1 and month < 7:
-        if day < 1 or day > 31:
+        while day < 1 or day > 31:
             print("Try again! \nEnter another day[1-31|30|29]:",end='',flush=True)
             day = int(input())
     if month >= 7 and month <= 11:
-        if day < 1 or day > 30:
+        while day < 1 or day > 30:
             print("Try again! \nEnter another day[1-31|30|29]:",end='',flush=True)
             day = int(input())
     if month == 12 and leap == 0:
-        if day < 1 or day > 29:
+        while day < 1 or day > 29:
             print("Try again! \nEnter another day[1-31|30|29]:",end='',flush=True)
             day = int(input())
     if month == 12 and leap == 1:
-        if day < 1 or day > 30:
+        while day < 1 or day > 30:
             print("Try again! \nEnter another day[1-31|30|29]:",end='',flush=True)
             day = int(input())
     else:
